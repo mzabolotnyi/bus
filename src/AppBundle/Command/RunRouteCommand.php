@@ -35,6 +35,7 @@ class RunRouteCommand extends ContainerAwareCommand
         for ($i = 0; $i < $iterations; $i++) {
 
             $bus->moveToNextStation();
+            $bus->openDoors();
 
             sleep(1);
 
@@ -60,6 +61,8 @@ class RunRouteCommand extends ContainerAwareCommand
                 $bus->wait(1);
                 sleep(3);
             }
+
+            $bus->closeDoors();
         }
     }
 
